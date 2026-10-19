@@ -1,0 +1,6 @@
+# Ignorados: datos sin revisar y respaldos de la VM
+respaldo/
+datos/salida/
+*.log
+.DS_Store
+Thumbs.db
