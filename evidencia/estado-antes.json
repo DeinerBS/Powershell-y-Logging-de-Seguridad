@@ -1,0 +1,84 @@
+{
+    "equipo":  "W11-WM",
+    "fecha":  "2026-10-18T17:37:42.8160589-06:00",
+    "version_script":  "0.2.0",
+    "auditoria":  [
+                      {
+                          "subcategoria":  "Logon (Inicio de sesión)",
+                          "guid":  "{0CCE9215-69AE-11D9-BED3-505054503030}",
+                          "eventos":  "4624 (aciertos), 4625 (errores)",
+                          "valor":  3,
+                          "descripcion":  "Aciertos y errores",
+                          "aciertos":  true,
+                          "errores":  true
+                      },
+                      {
+                          "subcategoria":  "Process Creation (Creación de procesos)",
+                          "guid":  "{0CCE922B-69AE-11D9-BED3-505054503030}",
+                          "eventos":  "4688",
+                          "valor":  0,
+                          "descripcion":  "Sin auditoría",
+                          "aciertos":  false,
+                          "errores":  false
+                      },
+                      {
+                          "subcategoria":  "Account Lockout (Bloqueo de cuenta)",
+                          "guid":  "{0CCE9217-69AE-11D9-BED3-505054503030}",
+                          "eventos":  "4625 con motivo \"cuenta bloqueada\"",
+                          "valor":  1,
+                          "descripcion":  "Solo aciertos",
+                          "aciertos":  true,
+                          "errores":  false
+                      },
+                      {
+                          "subcategoria":  "User Account Management (Administración de cuentas de usuario)",
+                          "guid":  "{0CCE9235-69AE-11D9-BED3-505054503030}",
+                          "eventos":  "4740 (cuenta bloqueada), 4720 (cuenta creada), 4726 (eliminada)",
+                          "valor":  1,
+                          "descripcion":  "Solo aciertos",
+                          "aciertos":  true,
+                          "errores":  false
+                      }
+                  ],
+    "registro":  [
+                     {
+                         "ruta":  "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\Audit",
+                         "nombre":  "ProcessCreationIncludeCmdLine_Enabled",
+                         "valor":  null,
+                         "activo":  false,
+                         "descripcion":  "Incluir la línea de comandos en el evento 4688"
+                     },
+                     {
+                         "ruta":  "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\PowerShell\\ScriptBlockLogging",
+                         "nombre":  "EnableScriptBlockLogging",
+                         "valor":  null,
+                         "activo":  false,
+                         "descripcion":  "Registro de bloques de script de PowerShell (evento 4104)"
+                     }
+                 ],
+    "logs":  [
+                 {
+                     "log":  "Security",
+                     "habilitado":  true,
+                     "tamano_mb":  20,
+                     "tamano_bytes":  20971520,
+                     "modo":  "Circular"
+                 },
+                 {
+                     "log":  "Microsoft-Windows-PowerShell/Operational",
+                     "habilitado":  true,
+                     "tamano_mb":  15,
+                     "tamano_bytes":  15728640,
+                     "modo":  "Circular"
+                 }
+             ],
+    "visibilidad":  {
+                        "4624":  true,
+                        "4625":  true,
+                        "4625_cuenta_bloqueada":  false,
+                        "4740":  true,
+                        "4688":  false,
+                        "4688_linea_comandos":  false,
+                        "4104":  false
+                    }
+}
