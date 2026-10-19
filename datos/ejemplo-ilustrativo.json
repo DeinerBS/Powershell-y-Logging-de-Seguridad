@@ -1,0 +1,241 @@
+{
+  "metadatos": {
+    "equipo": "VM-ISW612-EJEMPLO",
+    "generado": "2026-10-18T19:47:00.000000-06:00",
+    "version_script": "0.1.0",
+    "perfil": "simulacion",
+    "ventana_horas": 1,
+    "desde": "2026-10-18T18:47:00.000000-06:00",
+    "hasta": "2026-10-18T19:47:00.000000-06:00",
+    "ids_solicitados": [
+      4624,
+      4625,
+      4688,
+      4104
+    ],
+    "cuentas_sistema_incluidas": false,
+    "total_eventos": 14,
+    "conteo_por_id": {
+      "4624": 2,
+      "4625": 7,
+      "4688": 2,
+      "4104": 3
+    },
+    "advertencias": [],
+    "nota": "EJEMPLO ILUSTRATIVO escrito a mano para mostrar la forma del contrato. NO es una salida real del script ni evidencia del experimento."
+  },
+  "eventos": [
+    {
+      "hora": "2026-10-18T19:40:00.000000-06:00",
+      "id_evento": 4624,
+      "cuenta": "VM-ISW612-EJEMPLO\\admin_lab",
+      "origen": "127.0.0.1",
+      "tipo_logon": 2,
+      "resumen": "Inicio de sesión EXITOSO de VM-ISW612-EJEMPLO\\admin_lab. Tipo: Interactivo (teclado y pantalla del equipo). Origen: 127.0.0.1.",
+      "log": "Security",
+      "detalle": {
+        "tipo_logon_desc": "Interactivo (teclado y pantalla del equipo)",
+        "proceso": "C:\\Windows\\System32\\svchost.exe",
+        "sid": "S-1-5-21-1000000000-2000000000-3000000000-1001"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:40:35.000000-06:00",
+      "id_evento": 4688,
+      "cuenta": "VM-ISW612-EJEMPLO\\admin_lab",
+      "origen": "C:\\Windows\\explorer.exe",
+      "tipo_logon": null,
+      "resumen": "Se inició el programa powershell.exe desde explorer.exe. Comando: \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\"",
+      "log": "Security",
+      "detalle": {
+        "proceso": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "proceso_padre": "C:\\Windows\\explorer.exe",
+        "linea_comandos": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\"",
+        "elevacion": "%%1937"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:41:00.000000-06:00",
+      "id_evento": 4104,
+      "cuenta": "VM-ISW612-EJEMPLO\\admin_lab",
+      "origen": "(consola interactiva)",
+      "tipo_logon": null,
+      "resumen": "Se ejecutó un bloque de script de PowerShell escrito en consola. Inicio: Get-LocalUser | Select-Object Name, Enabled",
+      "log": "Microsoft-Windows-PowerShell/Operational",
+      "detalle": {
+        "sospechoso": false,
+        "script_block_id": "3f2a9c1e-7b4d-4e8a-9a51-0c6d2b8e1f10",
+        "parte": "1/1"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:41:35.000000-06:00",
+      "id_evento": 4688,
+      "cuenta": "VM-ISW612-EJEMPLO\\admin_lab",
+      "origen": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "tipo_logon": null,
+      "resumen": "Se inició el programa net.exe desde powershell.exe. Comando: net user prueba_isw612 [OCULTO] /add",
+      "log": "Security",
+      "detalle": {
+        "proceso": "C:\\Windows\\System32\\net.exe",
+        "proceso_padre": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "linea_comandos": "net user prueba_isw612 [OCULTO] /add",
+        "elevacion": "%%1937"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:43:00.000000-06:00",
+      "id_evento": 4625,
+      "cuenta": "VM-ISW612-EJEMPLO\\prueba_isw612",
+      "origen": "127.0.0.1",
+      "tipo_logon": 2,
+      "resumen": "Inicio de sesión FALLIDO para VM-ISW612-EJEMPLO\\prueba_isw612. Motivo: Contraseña incorrecta. Tipo: Interactivo (teclado y pantalla del equipo). Origen: 127.0.0.1.",
+      "log": "Security",
+      "detalle": {
+        "tipo_logon_desc": "Interactivo (teclado y pantalla del equipo)",
+        "proceso": "C:\\Windows\\System32\\svchost.exe",
+        "sid": "S-1-0-0",
+        "codigo": "0xc000006a",
+        "motivo": "Contraseña incorrecta"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:43:12.000000-06:00",
+      "id_evento": 4625,
+      "cuenta": "VM-ISW612-EJEMPLO\\prueba_isw612",
+      "origen": "127.0.0.1",
+      "tipo_logon": 2,
+      "resumen": "Inicio de sesión FALLIDO para VM-ISW612-EJEMPLO\\prueba_isw612. Motivo: Contraseña incorrecta. Tipo: Interactivo (teclado y pantalla del equipo). Origen: 127.0.0.1.",
+      "log": "Security",
+      "detalle": {
+        "tipo_logon_desc": "Interactivo (teclado y pantalla del equipo)",
+        "proceso": "C:\\Windows\\System32\\svchost.exe",
+        "sid": "S-1-0-0",
+        "codigo": "0xc000006a",
+        "motivo": "Contraseña incorrecta"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:43:23.000000-06:00",
+      "id_evento": 4625,
+      "cuenta": "VM-ISW612-EJEMPLO\\prueba_isw612",
+      "origen": "127.0.0.1",
+      "tipo_logon": 2,
+      "resumen": "Inicio de sesión FALLIDO para VM-ISW612-EJEMPLO\\prueba_isw612. Motivo: Contraseña incorrecta. Tipo: Interactivo (teclado y pantalla del equipo). Origen: 127.0.0.1.",
+      "log": "Security",
+      "detalle": {
+        "tipo_logon_desc": "Interactivo (teclado y pantalla del equipo)",
+        "proceso": "C:\\Windows\\System32\\svchost.exe",
+        "sid": "S-1-0-0",
+        "codigo": "0xc000006a",
+        "motivo": "Contraseña incorrecta"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:43:35.000000-06:00",
+      "id_evento": 4625,
+      "cuenta": "VM-ISW612-EJEMPLO\\prueba_isw612",
+      "origen": "127.0.0.1",
+      "tipo_logon": 2,
+      "resumen": "Inicio de sesión FALLIDO para VM-ISW612-EJEMPLO\\prueba_isw612. Motivo: Contraseña incorrecta. Tipo: Interactivo (teclado y pantalla del equipo). Origen: 127.0.0.1.",
+      "log": "Security",
+      "detalle": {
+        "tipo_logon_desc": "Interactivo (teclado y pantalla del equipo)",
+        "proceso": "C:\\Windows\\System32\\svchost.exe",
+        "sid": "S-1-0-0",
+        "codigo": "0xc000006a",
+        "motivo": "Contraseña incorrecta"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:43:46.000000-06:00",
+      "id_evento": 4625,
+      "cuenta": "VM-ISW612-EJEMPLO\\prueba_isw612",
+      "origen": "127.0.0.1",
+      "tipo_logon": 2,
+      "resumen": "Inicio de sesión FALLIDO para VM-ISW612-EJEMPLO\\prueba_isw612. Motivo: Contraseña incorrecta. Tipo: Interactivo (teclado y pantalla del equipo). Origen: 127.0.0.1.",
+      "log": "Security",
+      "detalle": {
+        "tipo_logon_desc": "Interactivo (teclado y pantalla del equipo)",
+        "proceso": "C:\\Windows\\System32\\svchost.exe",
+        "sid": "S-1-0-0",
+        "codigo": "0xc000006a",
+        "motivo": "Contraseña incorrecta"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:43:58.000000-06:00",
+      "id_evento": 4625,
+      "cuenta": "VM-ISW612-EJEMPLO\\prueba_isw612",
+      "origen": "127.0.0.1",
+      "tipo_logon": 2,
+      "resumen": "Inicio de sesión FALLIDO para VM-ISW612-EJEMPLO\\prueba_isw612. Motivo: Contraseña incorrecta. Tipo: Interactivo (teclado y pantalla del equipo). Origen: 127.0.0.1.",
+      "log": "Security",
+      "detalle": {
+        "tipo_logon_desc": "Interactivo (teclado y pantalla del equipo)",
+        "proceso": "C:\\Windows\\System32\\svchost.exe",
+        "sid": "S-1-0-0",
+        "codigo": "0xc000006a",
+        "motivo": "Contraseña incorrecta"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:44:20.000000-06:00",
+      "id_evento": 4625,
+      "cuenta": "VM-ISW612-EJEMPLO\\usuario_inexistente",
+      "origen": "127.0.0.1",
+      "tipo_logon": 2,
+      "resumen": "Inicio de sesión FALLIDO para VM-ISW612-EJEMPLO\\usuario_inexistente. Motivo: El usuario no existe. Tipo: Interactivo (teclado y pantalla del equipo). Origen: 127.0.0.1.",
+      "log": "Security",
+      "detalle": {
+        "tipo_logon_desc": "Interactivo (teclado y pantalla del equipo)",
+        "proceso": "C:\\Windows\\System32\\svchost.exe",
+        "sid": "S-1-0-0",
+        "codigo": "0xc0000064",
+        "motivo": "El usuario no existe"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:45:00.000000-06:00",
+      "id_evento": 4104,
+      "cuenta": "VM-ISW612-EJEMPLO\\admin_lab",
+      "origen": "(consola interactiva)",
+      "tipo_logon": null,
+      "resumen": "Se ejecutó un bloque de script de PowerShell escrito en consola. Inicio: $s = ConvertTo-SecureString [OCULTO] -AsPlainText -Force",
+      "log": "Microsoft-Windows-PowerShell/Operational",
+      "detalle": {
+        "sospechoso": false,
+        "script_block_id": "8c1d4e2f-0a3b-4c5d-9e6f-7a8b9c0d1e2f",
+        "parte": "1/1"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:45:40.000000-06:00",
+      "id_evento": 4104,
+      "cuenta": "VM-ISW612-EJEMPLO\\admin_lab",
+      "origen": "C:\\Lab\\prueba-codificada.ps1",
+      "tipo_logon": null,
+      "resumen": "PowerShell marcó como SOSPECHOSO un bloque de script del archivo prueba-codificada.ps1. Inicio: $b = [Convert]::FromBase64String($t); [System.Text.Encoding]::Unicode.GetString($b) | Write-Output",
+      "log": "Microsoft-Windows-PowerShell/Operational",
+      "detalle": {
+        "sospechoso": true,
+        "script_block_id": "b7e6d5c4-b3a2-4918-8f7e-6d5c4b3a2918",
+        "parte": "1/1"
+      }
+    },
+    {
+      "hora": "2026-10-18T19:46:40.000000-06:00",
+      "id_evento": 4624,
+      "cuenta": "VM-ISW612-EJEMPLO\\admin_lab",
+      "origen": "127.0.0.1",
+      "tipo_logon": 7,
+      "resumen": "Inicio de sesión EXITOSO de VM-ISW612-EJEMPLO\\admin_lab. Tipo: Desbloqueo de pantalla. Origen: 127.0.0.1.",
+      "log": "Security",
+      "detalle": {
+        "tipo_logon_desc": "Desbloqueo de pantalla",
+        "proceso": "C:\\Windows\\System32\\svchost.exe",
+        "sid": "S-1-5-21-1000000000-2000000000-3000000000-1001"
+      }
+    }
+  ]
+}
