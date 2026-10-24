@@ -2,9 +2,9 @@
 
 Universidad Técnica Nacional · Ingeniería del Software · ISW-612 Administración de Sistemas Operativos de Red · Prof. Marcos Castro
 
-**Integrantes:** Deiner Brenes Soto · Warner Mora Taisigue
+**Integrantes:** _[Nombre 1]_ · _[Nombre 2]_
 
-> **Estado del repositorio (19 de octubre de 2026):** scripts funcionando y probados en la VM, JSON de ejemplo real (`datos/ejemplo.json`) y resultados preliminares (`evidencia/resultados-19oct.md`). La aplicación web se entrega el 26 de octubre.
+> **Estado del repositorio (26 de octubre de 2026):** scripts funcionando y probados en la VM, JSON de ejemplo real (`datos/ejemplo.json`), resultados (`evidencia/resultados-19oct.md`) y app web (`web/index.html`).
 >
 > **Resultado preliminar:** con la configuración por defecto, los intentos contra una cuenta ya bloqueada no generan 4625. En la prueba solo fueron visibles 10 de 16 intentos (62,5 %); con la auditoría activada, 13 de 13 (100 %).
 
@@ -12,13 +12,7 @@ Universidad Técnica Nacional · Ingeniería del Software · ISW-612 Administrac
 
 ¿Qué visibilidad dan los eventos de Windows y el logging de PowerShell para detectar fuerza bruta y abuso de scripts?
 
-**Hipótesis:** Creemos que con Windows por defecto solo vamos a ver los inicios de sesión (4624 y 4625), y
-que casi nada de lo que pasa con procesos y scripts (4688 y 4104) va a quedar registrado. Al activar la
-auditoría y el logging de PowerShell deberían aparecer los cuatro eventos, y una regla simple como “5
-fallos en 2 minutos” debería detectar una fuerza bruta simulada. Por qué: según la documentación de
-Microsoft, parte de estos registros hay que activarlos por política. Lo vamos a confirmar en la VM,
-porque puede cambiar según la versión de Windows.
-
+**Hipótesis:** _[completar con la de la ficha]_. Por ejemplo: con la configuración por defecto de Windows 11 no quedan registrados ni la creación de procesos (4688) ni el contenido de los scripts de PowerShell (4104); al activar la auditoría avanzada y el registro de bloques de script, una regla simple como "5 fallos en 2 minutos sobre la misma cuenta" detecta un intento de fuerza bruta simulado.
 
 ## Qué hace el proyecto
 
@@ -27,7 +21,7 @@ porque puede cambiar según la versión de Windows.
 | Script 1 | `script/Configurar-Auditoria.ps1` | Muestra qué eventos se ven hoy (`Estado`), activa la auditoría necesaria guardando un respaldo (`Activar`) y deja el equipo como estaba (`Revertir`). |
 | Script 2 | `script/Recolectar-Eventos.ps1` | Lee los eventos 4624, 4625, 4688, 4104 y 4740, los normaliza y los exporta a JSON. Solo lee, no cambia nada. |
 | Contrato | `datos/esquema.md` | Qué significa cada campo del JSON. |
-| App web | `web/` | _Pendiente (26 de octubre)._ Línea de tiempo, reglas de detección y explicaciones simples. |
+| App web | `web/index.html` | Carga el JSON, muestra un semáforo de riesgo, los hallazgos principales, la tabla de eventos con filtros, la regla configurable "N fallos en X minutos", explicaciones simples y exportación a JSON o PDF. |
 
 ```
 Configurar-Auditoria.ps1 ──► Windows registra 4624/4625/4688/4104
@@ -85,8 +79,17 @@ Parámetros útiles del recolector: `-Horas`, `-MaxPorId`, `-IncluirCuentasSiste
 
 ## Cómo abrir la web
 
-_Pendiente para el 26 de octubre._ Se abrirá con doble clic en `web/index.html`, sin servidor ni cuentas.
+Doble clic en `web/index.html`. No necesita servidor, internet ni instalación.
 
+| Pantalla | Qué tiene |
+|---|---|
+| Inicio | Qué hace la herramienta, los tres pasos para usarla, la carga del JSON y el botón **Cargar datos de ejemplo** (la salida real de la VM). |
+| Resumen | Semáforo de riesgo (con color y texto), cifras, los tres hallazgos principales y recomendaciones. |
+| Eventos | La regla "N fallos en X minutos" (por defecto 5 en 2), filtros por tipo de evento, cuenta y origen, la tabla en orden de hora y la explicación de cada evento al hacer clic. |
+| Exportar | Descarga del resultado en JSON o impresión / PDF. |
+| Acerca de | Metodología en pocas líneas, glosario de eventos y fuentes. |
+
+Archivos de prueba en `web/pruebas/`: un JSON vacío, uno dañado, uno con otra estructura y uno con etiquetas HTML (para comprobar que la página muestra el contenido como texto y no lo ejecuta).
 ## Estructura
 
 ```
@@ -97,7 +100,7 @@ proyecto-isw612-tema4/
 │  ├─ ejemplo.json            salida real de una ejecución en la VM
 │  ├─ ejemplo-ilustrativo.json   ejemplo ficticio (forma del contrato)
 │  └─ esquema.md              qué significa cada campo
-├─ web/               app web (26 de octubre)
+├─ web/               index.html, css/, js/ y pruebas/
 ├─ evidencia/         capturas y JSON de antes/después
 ├─ bitacora-ia.md
 └─ docs/              requisitos del tema, guía de ejecución, documento APA y PPTX
