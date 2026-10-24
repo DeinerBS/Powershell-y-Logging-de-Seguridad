@@ -2,7 +2,7 @@
 
 Universidad Técnica Nacional · Ingeniería del Software · ISW-612 Administración de Sistemas Operativos de Red · Prof. Marcos Castro
 
-**Integrantes:** _[Nombre 1]_ · _[Nombre 2]_
+**Integrantes:** Deiner Brenes Soto · Warner Mora Taisigue
 
 > **Estado del repositorio (26 de octubre de 2026):** scripts funcionando y probados en la VM, JSON de ejemplo real (`datos/ejemplo.json`), resultados (`evidencia/resultados-19oct.md`) y app web (`web/index.html`).
 >
@@ -12,7 +12,12 @@ Universidad Técnica Nacional · Ingeniería del Software · ISW-612 Administrac
 
 ¿Qué visibilidad dan los eventos de Windows y el logging de PowerShell para detectar fuerza bruta y abuso de scripts?
 
-**Hipótesis:** _[completar con la de la ficha]_. Por ejemplo: con la configuración por defecto de Windows 11 no quedan registrados ni la creación de procesos (4688) ni el contenido de los scripts de PowerShell (4104); al activar la auditoría avanzada y el registro de bloques de script, una regla simple como "5 fallos en 2 minutos sobre la misma cuenta" detecta un intento de fuerza bruta simulado.
+**Hipótesis:** Creemos que con Windows por defecto solo vamos a ver los inicios de sesión (4624 y
+4625), y que casi nada de lo que pasa con procesos y scripts (4688 y 4104) va a quedar
+registrado. Al activar la auditoría y el logging de PowerShell deberían aparecer los cuatro
+eventos, y una regla simple como “5 fallos en 2 minutos” debería detectar una fuerza bruta
+simulada. Lo esperábamos porque, según Microsoft, parte de estos registros se activa por
+política, aunque había que confirmarlo en la VM.
 
 ## Qué hace el proyecto
 
@@ -131,4 +136,3 @@ Los scripts se escribieron con ayuda de un asistente de IA (Claude) y fueron rev
 - Microsoft. (s. f.). *auditpol*. Microsoft Learn. https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/auditpol
 - Microsoft. (s. f.). *auditpol restore*. Microsoft Learn. https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/auditpol-restore
 
-No se usó código ni listas de terceros.
