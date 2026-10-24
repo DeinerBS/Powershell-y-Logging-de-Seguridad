@@ -1,0 +1,18 @@
+{
+  "metadatos": {
+    "equipo": "<img src=x onerror=alert(1)>"
+  },
+  "eventos": [
+    {
+      "hora": "2026-10-18T10:00:00-06:00",
+      "id_evento": 4625,
+      "cuenta": "<script>alert(1)</script>",
+      "origen": "x",
+      "tipo_logon": 3,
+      "resumen": "<b>texto</b>",
+      "detalle": {
+        "motivo": "<i>m</i>"
+      }
+    }
+  ]
+}

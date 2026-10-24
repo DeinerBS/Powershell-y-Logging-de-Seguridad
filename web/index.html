@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visor de eventos de seguridad</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header>
+  <h1>Visor de eventos de seguridad</h1>
+  <nav>
+    <button data-pantalla="inicio" class="activo">Inicio</button>
+    <button data-pantalla="resumen" disabled>Resumen</button>
+    <button data-pantalla="eventos" disabled>Eventos</button>
+    <button data-pantalla="exportar" disabled>Exportar</button>
+    <button data-pantalla="acerca">Acerca de</button>
+  </nav>
+</header>
+
+<main>
+  <!-- INICIO: qué hace y carga del JSON -->
+  <section id="inicio" class="activa">
+    <p>Esta página revisa los eventos de seguridad de Windows y avisa si alguien intentó adivinar una contraseña (fuerza bruta) o si PowerShell marcó un script como sospechoso.</p>
+    <ol>
+      <li>Ejecutar <code>Recolectar-Eventos.ps1</code> en la VM.</li>
+      <li>Cargar aquí el archivo JSON que genera.</li>
+      <li>Ver el resultado en <b>Resumen</b> y <b>Eventos</b>.</li>
+    </ol>
+    <p>
+      <input type="file" id="archivo" accept=".json">
+      <button id="btn-ejemplo">Cargar datos de ejemplo</button>
+    </p>
+    <p id="mensaje"></p>
+  </section>
+
+  <!-- RESUMEN -->
+  <section id="resumen">
+    <div id="semaforo"></div>
+    <p id="cifras"></p>
+    <h2>Hallazgos principales</h2>
+    <ol id="hallazgos"></ol>
+    <h2>Recomendaciones</h2>
+    <ul id="recomendaciones"></ul>
+  </section>
+
+  <!-- EVENTOS: regla, filtros, tabla y detalle -->
+  <section id="eventos">
+    <p>
+      Regla: alertar si una cuenta tiene
+      <input type="number" id="regla-n" value="5" min="2"> fallos en
+      <input type="number" id="regla-min" value="2" min="1"> minutos.
+    </p>
+    <p>
+      <select id="f-id"></select>
+      <select id="f-cuenta"></select>
+      <select id="f-origen"></select>
+    </p>
+    <div id="detalle"></div>
+    <p id="conteo"></p>
+    <table>
+      <thead><tr><th>Fecha y hora</th><th>Evento</th><th>Cuenta</th><th>Origen</th><th>Resumen</th></tr></thead>
+      <tbody id="tabla"></tbody>
+    </table>
+  </section>
+
+  <!-- EXPORTAR -->
+  <section id="exportar">
+    <p>Guarde el resultado del análisis.</p>
+    <p>
+      <button id="btn-json">Descargar JSON</button>
+      <button id="btn-imprimir">Imprimir o guardar como PDF</button>
+    </p>
+  </section>
+
+  <!-- ACERCA DE: metodología y fuentes (pantalla mínima del Anexo B.3) -->
+  <section id="acerca">
+    <h2>Metodología</h2>
+    <p>En una máquina virtual con Windows 11 se activó la auditoría de inicios de sesión, procesos, bloqueo de cuentas y scripts de PowerShell. Luego se hicieron intentos fallidos de inicio de sesión contra una cuenta de prueba y el script <code>Recolectar-Eventos.ps1</code> exportó los eventos a JSON. Esta página aplica la regla "N fallos en X minutos" sobre los eventos 4625 de cada cuenta.</p>
+    <h2>Qué significa cada evento</h2>
+    <ul id="glosario"></ul>
+    <h2>Fuentes</h2>
+    <ul>
+      <li>Microsoft. (2026). <i>4625(F): An account failed to log on</i>. Microsoft Learn.</li>
+      <li>Microsoft. (2021). <i>4740(S): A user account was locked out</i>. Microsoft Learn.</li>
+      <li>Microsoft. (2022). <i>4688(S): A new process has been created</i>. Microsoft Learn.</li>
+      <li>Microsoft. (2025). <i>about_Logging</i> (PowerShell 5.1). Microsoft Learn.</li>
+      <li>MITRE. (2026). <i>Brute force</i> (T1110). MITRE ATT&amp;CK.</li>
+    </ul>
+    <p class="nota">Proyecto ISW-612 UTN, Deiner Brenes Soto y Warner Mora Taisigue.</p>
+  </section>
+</main>
+
+<script src="js/datos-ejemplo.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

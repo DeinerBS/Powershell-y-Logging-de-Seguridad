@@ -1,0 +1,35 @@
+/* Estilos simples del visor (ISW-612, Tema 4) */
+body { margin: 0; font-family: Arial, sans-serif; font-size: 15px; color: #222; background: #f4f4f4; }
+header { background: #1f3b57; color: #fff; padding: 10px 16px; }
+h1 { margin: 0 0 8px; font-size: 20px; }
+h2 { font-size: 16px; margin-top: 20px; }
+nav button { background: none; border: 1px solid #fff; color: #fff; padding: 5px 10px; margin: 2px; cursor: pointer; }
+nav button.activo { background: #fff; color: #1f3b57; }
+nav button:disabled { opacity: .4; cursor: default; }
+main { max-width: 1000px; margin: 16px auto; padding: 16px; background: #fff; }
+section { display: none; }
+section.activa { display: block; }
+button { padding: 6px 12px; cursor: pointer; }
+input[type=number] { width: 55px; }
+select { margin-right: 8px; padding: 4px; }
+.nota { color: #666; font-size: 13px; }
+.error { color: #b00020; font-weight: bold; }
+.ok { color: #1b6e2d; }
+
+/* Semáforo: color + texto, para no depender solo del color */
+#semaforo { padding: 12px; border-radius: 6px; font-size: 16px; }
+.rojo { background: #fde2e2; border-left: 8px solid #c62828; }
+.amarillo { background: #fff4d6; border-left: 8px solid #e0a000; }
+.verde { background: #e3f4e6; border-left: 8px solid #2e7d32; }
+
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { border: 1px solid #ddd; padding: 4px 6px; text-align: left; vertical-align: top; }
+th { background: #eee; }
+td:nth-child(-n+4) { white-space: nowrap; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: #f0f6ff; }
+tr.alerta { background: #fff1c2; }
+#detalle { background: #eef4fb; padding: 10px; margin-bottom: 10px; display: none; }
+
+@media (max-width: 700px) { td:nth-child(-n+4) { white-space: normal; } main { margin: 0; } }
+@media print { header, #inicio, #eventos, #exportar, #acerca { display: none !important; } section { display: block !important; } main { margin: 0; } }
